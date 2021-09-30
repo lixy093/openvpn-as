@@ -66,7 +66,7 @@ drwxr-xr-x 37 root root 4.0K Jul 29 11:37 pyovpn
 ```
 openvpn-as的2.9.0以上版本连接数配置文件是uprop.pyc，2.9.0以下版本uprop.pyo文件
 
-## 新建一个名为uprop.py的python文件
+### 新建一个名为uprop.py的python文件
 修改ret['concurrent_connections'] = 1024的数值即可指定最大连接数
 
 openvpn-as 2.9.0 及以上版本uprop.py内容:
@@ -90,7 +90,7 @@ for x in dir(uprop2):
 ```
 
 
-## 将上面的uprop.py编译为库文件uprop.pyc
+### 将上面的uprop.py编译为库文件uprop.pyc
 ```
 [root@openvpn lic]# python3 -O -m compileall uprop.py
 [root@openvpn lic]# mv __pycache__/uprop.cpython-36.opt-1.pyc uprop.pyc
@@ -98,7 +98,7 @@ for x in dir(uprop2):
 [root@openvpn lic]# rm -rf __pycache__ uprop.py
 ```
 
-## 重新打包pyovpn-2.0-py3.6文件
+### 重新打包pyovpn-2.0-py3.6文件
 ```
 [root@openvpn ]# cd /usr/local/openvpn_as/lib/python/unlock_lic
 [root@openvpn unlock_lic]# ll -h
@@ -123,7 +123,7 @@ drwxr-xr-x 37 root root 4.0K Jul 29 11:37 pyovpn
 [root@openvpn python]# rm -rf __pycache__/*
 ```
 
-## 重新初始化配置openvpn
+### 重新初始化配置openvpn
 ```
 [root@openvpn ~]# cd /usr/local/openvpn_as/bin
 [root@openvpn bin]# ./ovpn-init
@@ -143,5 +143,5 @@ Please enter 'yes' to indicate your agreement [no]: yes
 ------------------------------------------------------
 ```
 
-## 重新启动VPN后，发现连接数限制已解除
+### 重新启动VPN后，发现连接数限制已解除
 ![](https://devopsvn.xyz/wp-content/uploads/2021/07/Untitled-5.png)
