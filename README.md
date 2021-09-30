@@ -1,8 +1,6 @@
-# openvpn-as
-
 
 # 安装配置OpenVPN Access Server
-## 安装openvpn-as
+### 安装openvpn-as
 ```
 [root@openvpn ~]# yum -y install https://as-repository.openvpn.net/as-repo-centos7.rpm
 [root@openvpn ~]# yum -y install openvpn-as
@@ -15,34 +13,34 @@ wget https://swupdate.openvpn.net/as/clients/openvpn-as-bundled-clients-19.rpm
 yum install -y openvpn-as-bundled-clients-19.rpm
 yum install -y openvpn-as-2.9.5_82d54e5b-CentOS7.x86_64.rpm
 ```
-可在https://openvpn.net/sha256sum-data/官网查看最新的版本号，openvpn-as和penvpn-as-bundled-clients需要对应。
+可在官网查看最新的版本号https://openvpn.net/sha256sum-data/   ，openvpn-as和penvpn-as-bundled-clients需要对应。
 
-## 第一步会自动配置openvpn-as的WebUI，需要设置openvpn用户密码才能访问
+### 安装完成后会自动配置openvpn-as的WebUI，需要设置openvpn用户密码才能访问
 ```
 [root@openvpn ~]# passwd openvpn
 ```
 
-## 网页打开https://IP:943/admin，使用openvpn用户登录WebUI
+### 网页打开https://IP:943/admin，   用openvpn用户登录WebUI
 ![](https://devopsvn.xyz/wp-content/uploads/2021/07/Untitled-1.png)
 ![](https://devopsvn.xyz/wp-content/uploads/2021/07/Untitled-2.png)
 
-## 缺省只有2个免费的connection
+### 缺省只有2个免费的connection
 ![](https://devopsvn.xyz/wp-content/uploads/2021/07/Untitled-4.png)
 
 # 解除openvpn-as连接数限制
-## 停止openvpn服务
+### 停止openvpn服务
 ```
 [root@openvpn ~]# systemctl stop openvpnas
 ```
 
-## 进入openvpn目录，查找pvovpn-2.0-py**.egg文件
+### 进入openvpn目录，查找pvovpn-2.0-py**.egg文件
 ```
 [root@openvpn ~]# # cd /usr/local/openvpn_as/lib/python
 [root@openvpn python]# ls -l pyovpn-2.0-py*.egg
 ```
 本例文件为pyovpn-2.0-py3.6.egg，不同的python版本py**的名称会有所不同。
 
-## 备份pyovpn-2.0-py*.egg，并解压
+### 备份pyovpn-2.0-py*.egg，并解压
 ```
 [root@openvpn python]# mv pyovpn-2.0-py3.6.egg pyovpn-2.0-py3.6.egg.bak
 [root@openvpn python]# mkdir unlock_lic
@@ -60,7 +58,7 @@ drwxr-xr-x 37 root root 4.0K Jul 29 11:37 pyovpn
 -rw-r--r--  1 root root 5.7M Jul  7 20:24 pyovpn-2.0-py3.6.zip
 ```
 
-## 备份OpenVPN Access Server连接数配置文件
+### 备份OpenVPN Access Server连接数配置文件
 ```
 [root@openvpn lic]# cd pyovpn/lic
 [root@openvpn lic]# ls -lh uprop.pyc
