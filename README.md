@@ -129,7 +129,7 @@ drwxr-xr-x 37 root root 4.0K Jul 29 11:37 pyovpn
 [root@openvpn bin]# ./ovpn-init
 Detected an existing OpenVPN-AS configuration.
 Continuing will delete this configuration and restart from scratch.
-Please enter 'DELETE' to delete existing configuration: $\color{FF0000}{DELETE}$
+Please enter 'DELETE' to delete existing configuration: DELETE
  
           OpenVPN Access Server
           Initial Configuration Tool
